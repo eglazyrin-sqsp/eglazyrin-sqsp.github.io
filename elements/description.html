@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            body {
+                background-color: slategrey;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is a Product Description</h1>
+        <h2>“Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit…”</h2>
+        <pre id="json"></pre>
+        <script>
+            const url = new URL(window.location.href);
+            const data = url.searchParams.get("data");
+          
+            if (data) {
+              var stringifiedObject = decodeURI(data);
+              var object = JSON.parse(stringifiedObject);
+          
+              document.getElementById("json").textContent = "data = "+JSON.stringify(object, undefined, 2);
+            }  
+        </script>
+    </body>
+</html>
