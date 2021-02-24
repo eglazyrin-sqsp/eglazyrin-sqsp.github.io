@@ -9,12 +9,16 @@
         </style>
     </head>
     <body>
-        <h1>This is a Product Description</h1>
-        <h2>“Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit…”</h2>
+        <h1>This is a Product Description for SKU <div id="sku"></div></h1>
         <pre id="json"></pre>
         <script>
             const url = new URL(window.location.href);
             const data = url.searchParams.get("data");
+            const sku = url.searchParams.get("sku");
+
+            if (sku) {
+                document.getElementById("sku").textContent = sku;
+            }
           
             if (data) {
               var stringifiedObject = decodeURI(data);
