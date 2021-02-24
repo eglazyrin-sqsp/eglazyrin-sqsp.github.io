@@ -9,12 +9,15 @@
         </style>
     </head>
     <body>
-        <h1>This is a Product Description for SKU <div id="sku"></div></h1>
+        <h1>This is a Product Description for SKU <span id="sku"></span></h1>
         <pre id="json"></pre>
         <script>
             const url = new URL(window.location.href);
             const data = url.searchParams.get("data");
-            const sku = url.searchParams.get("sku");
+            let sku = url.searchParams.get("sku");
+            if (!sku) {
+                sku = url.searchParams.get("SKU");
+            }
 
             if (sku) {
                 document.getElementById("sku").textContent = sku;
