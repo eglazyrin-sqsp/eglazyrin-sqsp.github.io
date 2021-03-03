@@ -50,6 +50,19 @@
             
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
 
+            const resize = function(data) {
+                const { type, width, height } = data;
+                if (type === 'windowResize') {
+                    if (width > 900) {
+                        toolkitClient.setSize('500px', '600px');
+                    } else if (width > 600) {
+                        toolkitClient.setSize('500px', '400px');
+                    } else {
+                        toolkitClient.setSize('500px', '100%');
+                    }
+                }
+            }
+
             if (!!toolkitClient) {
                 toolkitClient.subscribe((data) => { console.log(data) }, ['windowResize']);
                 toolkitClient.setVisibility(true, '500px', '600px');
@@ -57,7 +70,6 @@
                     toolkitClient.setVisibility(false);
                 });
             }
-            console.log(window.parent.window.Squarespace)
         </script>
     </body>
 </html>
