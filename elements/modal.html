@@ -52,6 +52,7 @@
 
             const resize = function(data) {
                 const { type, width, height } = data;
+                console.log(data)
                 if (type === 'windowResize') {
                     if (width > 900) {
                         toolkitClient.setSize('500px', '600px');
@@ -64,7 +65,7 @@
             }
 
             if (!!toolkitClient) {
-                toolkitClient.subscribe((data) => { console.log(data) }, ['windowResize']);
+                toolkitClient.subscribe(resize, ['windowResize']);
                 toolkitClient.setVisibility(true, '500px', '600px');
                 document.getElementById('close').addEventListener('click', () => {
                     toolkitClient.setVisibility(false);
