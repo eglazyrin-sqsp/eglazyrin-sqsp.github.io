@@ -47,6 +47,7 @@
         <script src="/elements/toolkit-client.js"></script>
 
         <script>
+            
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
 
             if (!!toolkitClient) {
@@ -56,6 +57,7 @@
                     toolkitClient.setVisibility(false);
                 });
             }
+            console.log(window.parent.window.Squarespace)
         </script>
     </body>
 </html>
