@@ -47,7 +47,7 @@
                 <span id="tablet" class="device">
                     <svg color="gray.100" fill="currentColor" height="22" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg" class="css-1fy6kej"><path d="M15 13H7v2h8v-2z"></path><path clip-rule="evenodd" d="M17 4H5a3 3 0 00-3 3v8a3 3 0 003 3h12a3 3 0 003-3V7a3 3 0 00-3-3zM4 7a1 1 0 011-1h12a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V7z" fill-rule="evenodd"></path></svg>
                 </span>
-                <span id="desktop" class="device">
+                <span id="desktop" class="device visible">
                     <svg color="gray.100" fill="currentColor" height="22" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg" class="css-1fy6kej"><path clip-rule="evenodd" d="M2 3h18v13h-8v2h3v2H7v-2h3v-2H2V3zm2 2v9h14V5H4z" fill-rule="evenodd"></path></svg>
                 </span>    
             </h2>
@@ -66,8 +66,8 @@
 
         <script>
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
-
             const isTouch = matchMedia('(pointer:coarse)').matches;
+            let sizeX, sizeY;
 
             const onResize = function(data) {
                 const { type, width, height } = data;
@@ -98,13 +98,20 @@
                     document.getElementById('wy').innerHTML = height;
                     document.getElementById('ix').innerHTML = x;
                     document.getElementById('ix').innerHTML = y;
-                    toolkitClient.setSize(x, y);
+                    if (x !== sizeX || y !== sizeY) {
+                        toolkitClient.setSize(x, y);
+                        sizeX = x;
+                        sizeY = y;
+                    }
                 }
             }
 
             if (!!toolkitClient) {
+                sizeX = '500px';
+                sizeY = '600px';
                 toolkitClient.subscribe(onResize, ['windowResize']);
-                toolkitClient.setVisibility(true, '500px', '600px');
+                toolkitClient.setVisibility(true, sizeX, sizeY);
+                onResize();
                 document.getElementById('close').addEventListener('click', () => {
                     toolkitClient.setVisibility(false);
                 });
