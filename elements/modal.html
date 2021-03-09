@@ -84,22 +84,23 @@
                     document.querySelector('.device.visible').classList.remove('visible');
                     
                     if (isTouch) {
-                        if (width > 640) {
-                            device = 'tablet';
+                        device = 'tablet';
+                        if (width <= 640) {
+                            x = '100%';
+                            y = '100%';
+                            device = 'mobile';
                         }
-                        x = '100%';
-                        y = '100%';
-                        device = 'mobile';
                     } else {
                         device = 'desktop';
                         if (width > 900) {
                             x = '500px';
                             y = '600px';
-                        } else if (width > 640) {
+                        } else {
                             x = '400px';
                             y = '400px';
                         }
                     }
+                    console.log(device);
                     document.getElementById('resizeInfo').classList.add('visible');
                     document.getElementById(device).classList.add('visible');
                     document.getElementById('wx').innerHTML = width;
