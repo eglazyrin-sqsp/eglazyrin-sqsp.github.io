@@ -75,7 +75,6 @@
         <script>
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
             
-            // todo: get windowHeight from data
             const onResize = function(data) {
                 const { type, width, height } = data;
                 const isTouch = matchMedia('(pointer:coarse)').matches;
@@ -116,6 +115,8 @@
             }
 
             if (!!toolkitClient) {
+                const { width, height } = toolkitClient.getInitialSize();
+                console.log(width, height);
                 toolkitClient.subscribe(onResize, ['windowResize']);
                 toolkitClient.setVisibility(true, '500px', '600px');
                 document.getElementById('close').addEventListener('click', () => {
