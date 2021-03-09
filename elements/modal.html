@@ -72,7 +72,7 @@
                 let x, y, device;
                 const isTouch = matchMedia('(pointer:coarse)').matches;
                 document.querySelector('.device.visible').classList.remove('visible');
-                console.log(data)
+
                 if (isTouch) {
                     if (width > 640) {
                         x = '500px';
@@ -107,9 +107,8 @@
             
             const onResize = function(data) {
                 const { type, width, height } = data;
-                console.log(data)
                 if (type === 'windowResize') {
-                    const { iframeWidth, iframeHeight } = calculateIframeSize(width, height);
+                    const { iframeWidth, iframeHeight } = calculateIframeSize({ width, height });
                     toolkitClient.setSize(iframeWidth, iframeHeight);
                 }
             }
