@@ -68,7 +68,7 @@
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
 
             const calculateIframeSize = function(data) {
-                const { width, size } = data;
+                const { width, height } = data;
                 let x, y, device;
                 const isTouch = matchMedia('(pointer:coarse)').matches;
                 document.querySelector('.device.visible').classList.remove('visible');
