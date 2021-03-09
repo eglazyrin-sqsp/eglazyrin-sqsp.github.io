@@ -115,9 +115,9 @@
             }
 
             if (!!toolkitClient) {
-                const { width, height } = calculateIframeSize(toolkitClient.getInitialSize());
+                const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
                 toolkitClient.subscribe(onResize, ['windowResize']);
-                toolkitClient.setVisibility(true, width, height);
+                toolkitClient.setVisibility(true, iframeWidth, iframeHeight);
                 document.getElementById('close').addEventListener('click', () => {
                     toolkitClient.setVisibility(false);
                 });
