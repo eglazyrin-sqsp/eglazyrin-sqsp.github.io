@@ -111,7 +111,7 @@ function makeToolkitClient(targetOrigin) {
 
     function getInitialSize() {
         return {
-            width: initialData.windowHeight,
+            width: initialData.windowWidth,
             height: initialData.windowHeight
         }
     }
