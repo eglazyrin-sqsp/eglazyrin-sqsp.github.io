@@ -99,6 +99,10 @@
                 document.getElementById('wy').innerHTML = height;
                 document.getElementById('ix').innerHTML = x;
                 document.getElementById('iy').innerHTML = y;
+                return { 
+                    iframeWidth: x,
+                    iframeHeight: y
+                 }
             }
             
             const onResize = function(data) {
