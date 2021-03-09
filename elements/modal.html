@@ -58,8 +58,8 @@
                         <svg color="gray.100" fill="currentColor" height="22" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg" class="css-1fy6kej"><path clip-rule="evenodd" d="M2 3h18v13h-8v2h3v2H7v-2h3v-2H2V3zm2 2v9h14V5H4z" fill-rule="evenodd"></path></svg>
                     </span>    
                 </h2>
-                <h2>Window size: <span id="wx"></span>✕<span id="wy"></span></h2>
-                <h2>iframe size: <span id="ix"></span>✕<span id="iy"></span></h2>
+                <h2>Window size: <span id="wx"></span>px ✕ <span id="wy"></span>px</h2>
+                <h2>iframe size: <span id="ix"></span> ✕ <span id="iy"></span></h2>
             </div>
 
             <div class="text">
@@ -105,7 +105,7 @@
                     document.getElementById('wx').innerHTML = width;
                     document.getElementById('wy').innerHTML = height;
                     document.getElementById('ix').innerHTML = x;
-                    document.getElementById('ix').innerHTML = y;
+                    document.getElementById('iy').innerHTML = y;
                     toolkitClient.setSize(x, y);
                 }
             }
