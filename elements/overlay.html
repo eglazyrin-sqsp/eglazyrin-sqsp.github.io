@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <script src="/elements/toolkit-client.js"></script>
+        <script src="/toolkit-client.js"></script>
 
         <script>
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
@@ -59,7 +59,7 @@
             const calculateIframeSize = function(data) {
                 return { 
                     iframeWidth: 'auto',
-                    iframeHeight: document.body.scrollHeight
+                    iframeHeight: document.body.scrollHeight + 'px'
                  }
             }
             
