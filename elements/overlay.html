@@ -55,10 +55,10 @@
 
         <script>
             const toolkitClient = makeToolkitClient('https://mayflower-pike-jg7c.dev.squarespace.net');
-
+            console.log('document.body.scrollHeight', document.body.scrollHeight)
             const calculateIframeSize = function(data) {
                 return { 
-                    iframeWidth: 'auto',
+                    iframeWidth: '500px',
                     iframeHeight: document.body.scrollHeight + 'px'
                  }
             }
