@@ -35,7 +35,14 @@
                 display: inline-block;
             }
         </style>
-        <script type="text/javascript" src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" async=""></script>
+        <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
+        <script type="application/javascript">
+            setTimeout(() => {
+                LC_API.on_widget_resize = function({ width, height }) { 
+                    // use width & height to resize iframe
+                }
+            }, 1000);
+        </script>
     </head>
     <link rel="icon" 
         type="image/png" 
