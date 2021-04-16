@@ -39,6 +39,7 @@
         <script type="application/javascript">
             setTimeout(() => {
                 LC_API.on_widget_resize = function({ width, height }) { 
+                    console.log(width, height);
                     // use width & height to resize iframe
                 }
             }, 1000);
