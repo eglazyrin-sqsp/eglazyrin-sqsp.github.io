@@ -43,16 +43,16 @@
                 const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
                 toolkitClient.subscribe(onResize, ['windowResize']);
                 toolkitClient.setVisibility(true, iframeWidth, iframeHeight);
-            }
-        </script>
-        <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
-        <script type="application/javascript">
-            setTimeout(() => {
+                var lc_script = document.createElement('script');
+                lc_script.setAttribute('src','https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js');
+                document.head.appendChild(lc_script);
+                setTimeout(() => {
                 LC_API.on_widget_resize = function({ width, height }) { 
                     console.log(width, height);
                     // use width & height to resize iframe
                 }
             }, 1000);
+            }
         </script>
     </body>
 </html>
