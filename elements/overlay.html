@@ -46,7 +46,7 @@
                 setTimeout(() => {
                     var lc_script = document.createElement('script');
                     lc_script.setAttribute('src','https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js');
-                    document.head.appendChild(lc_script);
+                    //document.head.appendChild(lc_script);
                     console.log('bar');
                     setTimeout(() => {
                         LC_API.on_widget_resize = function({ width, height }) { 
@@ -57,5 +57,6 @@
                 }, 1000);
             }
         </script>
+        <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
     </body>
 </html>
