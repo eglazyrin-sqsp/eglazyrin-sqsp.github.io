@@ -8,55 +8,15 @@
             #content {
                 width: 100%;
                 height: 100%;
-                font-family: sans-serif;
-            }
-            button {
-                background-color: #000;
-                border: none;
-                color: white;
-                padding: 14px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            button:hover {
-                background-color: #333
-            }
-            .text {
-                margin-bottom: 20px;
-            }
-            .device {
-                display: none;
-                transform: scale(2);
-            }
-            .device.visible {
-                display: inline-block;
+                border: 1px solid red;
             }
         </style>
-        <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
-        <script type="application/javascript">
-            setTimeout(() => {
-                LC_API.on_widget_resize = function({ width, height }) { 
-                    console.log(width, height);
-                    // use width & height to resize iframe
-                }
-            }, 1000);
-        </script>
     </head>
     <link rel="icon" 
         type="image/png" 
         href="/toolkit-content/favicon.png" />
     <body>
         <div id="content">
-            <h1>Overlay</h1>
-            <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac eros arcu. In ultrices odio id felis feugiat iaculis. Aenean erat dolor, aliquet a lectus a, ultricies porttitor justo. Phasellus rhoncus condimentum euismod. Aliquam et accumsan urna, in suscipit tellus. Morbi consectetur venenatis ligula scelerisque placerat. Nunc a justo sed dui convallis faucibus at a tellus. Mauris sit amet eros dolor. Vivamus ullamcorper enim nulla, vulputate eleifend ante finibus non. Vestibulum nec sagittis tortor. Pellentesque suscipit hendrerit lorem ut malesuada. Integer auctor gravida tortor, vitae porttitor nisi egestas et. Sed ultricies odio congue gravida luctus. Nullam eu magna auctor tellus rhoncus gravida. Nulla in urna augue. Nulla id mi nisi.
-            </div>
-            <div>
-                <button id="close">Close</button>
-            </div>
         </div>
 
         <script src="/elements/toolkit-client.js"></script>
@@ -74,18 +34,28 @@
                 const { type, width, height } = data;
                 if (type === 'windowResize') {
                     const { iframeWidth, iframeHeight } = calculateIframeSize({ width, height });
+                    console.log('resize');
                     toolkitClient.setSize(iframeWidth, iframeHeight);
                 }
             }
 
             if (!!toolkitClient) {
                 const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
-                //toolkitClient.subscribe(onResize, ['windowResize']);
+                toolkitClient.subscribe(onResize, ['windowResize']);
                 toolkitClient.setVisibility(true, iframeWidth, iframeHeight);
                 document.getElementById('close').addEventListener('click', () => {
                     toolkitClient.setVisibility(false);
                 });
             }
+        </script>
+        <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
+        <script type="application/javascript">
+            setTimeout(() => {
+                LC_API.on_widget_resize = function({ width, height }) { 
+                    console.log(width, height);
+                    // use width & height to resize iframe
+                }
+            }, 1000);
         </script>
     </body>
 </html>
