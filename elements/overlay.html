@@ -12,9 +12,6 @@
             }
         </style>
     </head>
-    <link rel="icon" 
-        type="image/png" 
-        href="/toolkit-content/favicon.png" />
     <body>
         <div id="content">
         </div>
@@ -58,5 +55,13 @@
             }
         </script>
         <script src="https://connect.livechatinc.com/api/v1/script/9f53046d-fc53-4bdc-acfa-563fbe98bd6b/widget.js" type="application/javascript" async></script>
+        <script>
+            setTimeout(() => {
+                LC_API.on_widget_resize = function({ width, height }) { 
+                    console.log(width, height);
+                    // use width & height to resize iframe
+                }
+            }, 1000);
+        </script>
     </body>
 </html>
