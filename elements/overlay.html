@@ -22,8 +22,8 @@
             const toolkitClient = UiToolkitSdk.Client.create();
             const calculateIframeSize = function(data) {
                 return { 
-                    iframeWidth: '500px',
-                    iframeHeight: '500px'
+                    iframeWidth: '300px',
+                    iframeHeight: '300px'
                  }
             }
             
@@ -37,8 +37,7 @@
             }
 
             if (!!toolkitClient) {
-                console.log(toolkitClient);
-                //toolkitClient.completeLoading();
+                toolkitClient.completeLoading();
                 toolkitClient.setVisibility(true);
                 toolkitClient.setSize('300px', '300px');
                 //const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
