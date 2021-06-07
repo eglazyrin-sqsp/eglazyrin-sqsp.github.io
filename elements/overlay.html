@@ -16,7 +16,7 @@
         <div id="content">
         </div>
 
-        <script src="/elements/index.development.js"></script>
+        <script src="/elements/index.production.min.js"></script>
 
         <script>
             const toolkitClient = UiToolkitSdk.Client.create();
@@ -37,7 +37,10 @@
             }
 
             if (!!toolkitClient) {
+                toolkitClient.setVisibility(true);
                 toolkitClient.completeLoading();
+                toolkitClient.setVisibility(true);
+                toolkitClient.setSize('300px', '300px');
                 //const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
                 //toolkitClient.subscribe(onResize, ['windowResize']);
                 //toolkitClient.setVisibility(true, iframeWidth, iframeHeight);
