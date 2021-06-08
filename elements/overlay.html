@@ -4,6 +4,7 @@
             body {
                 background-color: #fff;
                 padding: 10px;
+                overflow: hidden;
             }
             #content {
                 width: 100%;
@@ -37,7 +38,7 @@
             }
 
             if (!!toolkitClient) {
-                toolkitClient.completeLoading();
+                //toolkitClient.completeLoading();
                 setTimeout(function(){
                     toolkitClient.setVisibility(true);
 
