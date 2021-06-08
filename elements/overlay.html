@@ -37,12 +37,12 @@
             }
 
             if (!!toolkitClient) {
-                toolkitClient.completeLoading();
+                //toolkitClient.completeLoading();
                 setTimeout(function(){
                     toolkitClient.setVisibility(true);
 
                     setTimeout(function(){
-                        toolkitClient.setSize('300px', '300px');
+                        toolkitClient.setSize({ height: '300px', width: '300px'});
                     }, 300);
                 }, 300);
 
