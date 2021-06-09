@@ -38,15 +38,9 @@
             }
 
             if (!!toolkitClient) {
-                //toolkitClient.completeLoading();
-                setTimeout(function(){
-                    toolkitClient.setVisibility(true);
-
-                    setTimeout(function(){
-                        toolkitClient.setSize({ height: '300px', width: '300px'});
-                    }, 300);
-                }, 300);
-
+                toolkitClient.completeLoading();
+                toolkitClient.setVisibility(true);
+                toolkitClient.setSize({ height: '300px', width: '300px'});
                 
                 //const { iframeWidth, iframeHeight } = calculateIframeSize(toolkitClient.getInitialSize());
                 //toolkitClient.subscribe(onResize, ['windowResize']);
